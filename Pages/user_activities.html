@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .user_contented {
+            align-content: center;
+            margin-top: 5rem;
+            margin-left: 8rem;
+            height: 30rem;
+            width: 50rem;
+            box-shadow: 1px 1px 2px 2px rgb(199, 199, 199);
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            background: rgb(216, 216, 216);
+            height: 50px;
+            box-shadow: 0px 0px 0px 1px rgb(199, 199, 199);
+        }
+        #top {
+            margin-top: 10px;
+        }
+        .text {
+            margin-left: 20px;
+            font-size: large;
+        }
+        .button_to_add {
+            margin-right: 10px;
+        }
+        .save_button {
+            margin-left: 20px;
+            margin-top: 40px;
+        }
+        .save_button input {
+            height: 40px;
+        }
+        .content input {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<form action=" ">
+
+    <div class="user_contented">
+        <div class="top">
+            <div class="text" id="top">
+                <label for=""> Add user activity </label>
+            </div>
+            <div class="button_to_add" id="top">
+                <input type="button" class="add_user" value="add user">
+            </div>
+        </div>
+
+        <div class="content">
+            <input type="text" name="FirstName[]">
+            <input type="text" name="SecordName[]">
+            <input type="text" name="Amount[]" placeholder="Amount">
+            <input type="button" value="Remove" onclick="removeUser(this)">
+        </div>
+
+        <div class="added_user_record"></div>
+            <div class="save_button">
+                <input type="submit" value="Save Data">
+            </div>
+    </div>
+</form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.add_user').addEventListener('click', function () {
+                var addedUserRecord = document.querySelector('.added_user_record');
+                var content = document.createElement('div');
+                content.classList.add('content');
+                content.innerHTML = `
+                    <input type="text" name="FirstName[]">
+                    <input type="text" name="SecordName[]">
+                    <input type="text" name="Amount[]" placeholder="Amount">
+                    <input type="button" value="Remove" onclick="removeUser(this)">
+                `;
+                addedUserRecord.appendChild(content);
+            });
+
+            function removeUser(element) {
+                var content = element.parentNode;
+                content.parentNode.removeChild(content);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+<table>
+    <tr>
+        <th>FirstName</th>
+        <th>SecordName</th>
+        <th>Amount</th>
+    </tr>
+    <?php 
+        include("../php/fetch.php");
+
+        if($fetc ->num_rows > 0)
+        {
+            foreach ($fetc AS $row) {
+                ?> 
+                <tr>
+                    <td><input type="text" name="FirstName[]" value="<?=$row['First_name']?>" > </td>
+                    <td><input type="text" name="SecordName[]" value="<?=$row['Secord_name']?>" > </td>
+                    <td><input type="text" name="Amount[]" id="input_fild_attend"> </td>
+            </tr>
+            <?php
+        }
+    }
+else{
+        echo $error;
+    }
+?>
+</tr>
+</table>
