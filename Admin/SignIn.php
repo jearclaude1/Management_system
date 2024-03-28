@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once('../php/connection/connection.php');
 
 // Function to check if user is already logged in
 function isLoggedIn() {
@@ -14,6 +15,7 @@ function validateCredentials($username, $email, $password) {
         return true;
     }
     return false;
+    //
 }
 
 // Check if form is submitted
@@ -46,17 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <title>Login Page</title>
 <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="../Assets/img/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="./css/preloader.css">
 </head>
-<body style="background:rgb(230, 230, 230); bacground:no-repeat;">
+<body style="background:rgb(230, 230, 230z); bacground:no-repeat;">
 <!-- Preloader HTML -->
 <div id="preloader">
     <div class="spinner"></div>
 </div> 
 <!-- end -->
 <div class="container ">
-    <div class="card px-2 py-2" style="width:700px; margin-left:19rem; margin-top:7rem; border-radius:10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);">
+    <div class="card px-2 py-2" style="width:700px; margin-left:19rem; margin-top:5rem; border-radius:10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);">
         <div class="card-body">
             <p class="h3 text-primary text-center p-1">SignIn To UmucyoChoirMs</p>
         </div>
@@ -69,28 +71,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="invalid-feedback">Please fill out this field.</div>
 </div>
 <div class="">
-    <label for="email" class="form-label">Email:</label><br>
-    <input type="email" class="form-control" id="email" name="email" required><br><br>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Please fill out this field.</div>
-</div>
-<div class="">
     <label for="password" class="form-label">Password:</label><br>
     <input type="password" class="form-control" id="password" name="password" required><br><br>
     <div class="valid-feedback">Valid.</div>
     <div class="invalid-feedback">Please fill out this field.</div>
 </div>
 <div class="down" style="display:flex; padding:3rem; margin-top:-1rem;">
-<input type="submit" value="SignIn" id="signup" class="btn btn-primary p-2" style="width:50rem; margin-top:-2rem;">
+<input type="submit" value="SignIn" id="signup" class="btn btn-primary" style="width:60rem; margin-top:-3rem;">
 </div>
 <div class="down d-flex">
 <a href="./SignUp.php">Forget your password?</a>
-<a href="./index.php" class="btn btn-primary" style="margin-left:2rem;">Back</a>
+<a href="../index.php" class="btn btn-primary" style="margin-left:2rem;">Back</a>
 </div>
 </form> 
-        </div>
-    </div>
+  </div>
+</div>
+</div>
 
+<!-- Footer -->
+<div class="footer" style="margin-top:10rem;">
+<div class="footermain text-center mt-5 text-dark-primary">
+        &copy; copyrigth 2024 , UmucyoChoirManagment System , From CyberCodeTechLtd
+    </div>
 </div>
 <script src="./js/preloader.js"></script>
 </body>

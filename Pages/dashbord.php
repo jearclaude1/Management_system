@@ -9,6 +9,7 @@ include("../php/connection/connection.php");
     <link rel="stylesheet" href="../css/index.css">
     <title>Umucyo | Dashbord</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/css/index.css">
 </head>
 <body>
 <div class="web_content">
@@ -108,6 +109,6 @@ include("../php/connection/connection.php");
 </table>
 </div>
 </form>
-<script src="../javascript/index.js"></script>
+<script src="../Assets/js/index.js"></script>
 </body>
 </html>
