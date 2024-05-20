@@ -2,15 +2,12 @@
 session_start();
 include_once('../php/connection/connection.php');
 
-// Function to check if user is already logged in
 function isLoggedIn() {
     return isset($_SESSION['username']);
 }
 
-// Function to validate username, email, and password
 function validateCredentials($username, $email, $password) {
-    // You can implement your own validation logic here
-    // For simplicity, let's just check if username, email, and password are not empty
+
     if (!empty($username) && !empty($email) && !empty($password)) {
         return true;
     }
@@ -26,14 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validate credentials
     if (validateCredentials($username, $email, $password)) {
-        // Set session variables
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
-        // Redirect to home page or any other page after successful login
+
         header("Location: index.php");
         exit;
     } else {
-        // Display error message for failed authentication
+
         echo "<script>alert('Invalid username, email, or password. Please try again.');</script>";
     }
 }
@@ -50,8 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="../Assets/img/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="../Assets/css/preloader.css">
-<link rel="stylesheet" href="../Assets/css/index.css">
 </head>
 <body style="background:rgb(230, 230, 230z); background:no-repeat;">
 

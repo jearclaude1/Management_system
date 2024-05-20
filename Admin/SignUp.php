@@ -34,8 +34,7 @@ if (isset($_POST["submit"]))
 <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="../Assets/img/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="../Assets/css/preloader.css">
-<link rel="stylesheet" href="../Assets/css/index.css">
+
 </head>
 <body style="background:rgb(230, 230, 230); background:no-repeat;">
 <!-- Preloader HTML -->
