@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="stylesheet" href="../Assets/css/preloader.css">
 <link rel="stylesheet" href="../Assets/css/index.css">
 </head>
-<body style="background:rgb(230, 230, 230z); bacground:no-repeat;">
+<body style="background:rgb(230, 230, 230z); background:no-repeat;">
 
 <!-- Preloader HTML -->
 

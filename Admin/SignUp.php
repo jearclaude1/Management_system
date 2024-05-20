@@ -37,7 +37,7 @@ if (isset($_POST["submit"]))
 <link rel="stylesheet" href="../Assets/css/preloader.css">
 <link rel="stylesheet" href="../Assets/css/index.css">
 </head>
-<body style="background:rgb(230, 230, 230); bacground:no-repeat;">
+<body style="background:rgb(230, 230, 230); background:no-repeat;">
 <!-- Preloader HTML -->
 <!-- <div id="preloader">
     <div class="spinner"></div>
