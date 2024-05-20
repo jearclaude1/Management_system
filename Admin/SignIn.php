@@ -29,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Set session variables
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
-
         // Redirect to home page or any other page after successful login
         header("Location: index.php");
         exit;
@@ -46,13 +45,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login Page</title>
+
 <!-- Latest compiled and minified CSS -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="../Assets/img/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="./css/preloader.css">
+<link rel="stylesheet" href="../Assets/css/preloader.css">
+<link rel="stylesheet" href="../Assets/css/index.css">
 </head>
 <body style="background:rgb(230, 230, 230z); bacground:no-repeat;">
+
 <!-- Preloader HTML -->
+
 <div id="preloader">
     <div class="spinner"></div>
 </div> 
