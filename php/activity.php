@@ -11,7 +11,7 @@
             $A_member_id= $member_id;
             $A_event_id = $event_id[$index];
             $A_Amount = $Amount[$index];
-            $dates=$dates;
+            $dates=$dates[$index];
             $query = mysqli_query($database,"INSERT INTO `activities`(`member_id`,`event_id`,`Amount`,dates) VALUES('$A_member_id','$A_event_id','$A_Amount','$dates')");
             header("location:../Pages/event.php");
         }
