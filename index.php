@@ -22,7 +22,7 @@
         <p class="h5 text-center">ManagmentSystem</p>
     <div class="buttons d-flex mt-5" style="margin-left:35rem;">
         <a href="./Admin/SignIn.php" class="btn btn-outline-primary">SignIn</a>
-        <a href="./SignUp.php" class="btn btn-primary" style="margin-left:1rem;">SignUp</a>
+        <a href="./Admin/SignUp.php" class="btn btn-primary" style="margin-left:1rem;">SignUp</a>
     </div>
     <!-- end main -->
 </div>
