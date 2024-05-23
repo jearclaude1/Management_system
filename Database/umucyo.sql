@@ -86,19 +86,15 @@ CREATE TABLE `events` (
   `inchage` varchar(255) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Dumping data for table `events`
 --
-
 INSERT INTO `events` (`event_id`, `event_name`, `Amount`, `inchage`, `date`) VALUES
 (1, 'gusura abarwayi ', '1500', 'harerimana', '2025-01-24'),
 (2, 'Class Meeting', '500', 'The Ghost', '2024-02-09'),
 (3, 'vala days', '2000', 'The ghost', '2024-02-28'),
 (4, 'Kwitanga', '1500', 'The CypherGhost', '2010-02-24');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `members`
 --
