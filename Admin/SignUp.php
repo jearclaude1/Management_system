@@ -1,27 +1,28 @@
 <?php
 session_start();
+
 include("../php/connection/connection.php");
 
-if (isset($_POST["submit"])) 
+if (isset($_POST["save"])) 
 {
-   $FirstName=$_POST["FirstName"];
-   $SecordName=$_POST["SecordName"];
-   $userName=$_POST['username'];
-   $email=$_POST['email'];
+   $username=$_POST["username"];
+   $password=$_POST["password"];
    $Telephone=$_POST["Telephone"];
-   $gender=$_POST['gender'];
-   $pswd=$_POST['password'];
-   $district=$_POST["district"];
-   $cpwd=$_POST['cpassword'];
-   $_SESSION['cpassword'] = $cpwd;
-   echo($_SESSION['cpassword'] = $cpwd);
+
+//    right size
+
+   $email=$_POST["email"];
+   $conform_password=$_POST["conform_password"];
+   $user_type='user';
    
-   $insert=mysqli_query($database,"INSERT INTO members(`First_name`,`Secord_name`,`username`,`email`,`Telephone`,`gender`,`password`,`district`) VALUES ('$FirstName','$SecordName','$userName','$email','$Telephone','$gender','$pswd','$district')");
+   $insert=mysqli_query($database,"INSERT INTO `user`(`user_id`, `Username`, `Password`, `Telephone`, `email`, `conform_password`, `user_type`) 
+   VALUES ('','$username','$password','$Telephone','$email','$conform_password','$user_type')");
    
-   if ($insert == TRUE) 
+   if ($insert) 
    {
-         print("<script>alert('User added well!..')</script>"); 
-         header("location:.../Pages/dashbord.php");
+
+         header("location:../Pages/dashbord.php"); 
+         echo "<script>alert('Welcome to Umucyo Choir.');</script>";
    }
 }
 ?>
@@ -31,7 +32,6 @@ if (isset($_POST["submit"]))
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UmucyoSignUp Page</title>
-<!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="shortcut icon" href="../Assets/img/favicon.png" type="image/x-icon">
 
@@ -52,10 +52,7 @@ if (isset($_POST["submit"]))
        <div class="main d-flex m-5">
         <!-- right column of form -->
         <div class="right-cols">
-            <div class="mb-3 mt-3">
-                <label for="firstName" class="form-label">firstName:</label>
-                <input type="text" name="FirstName" class="form-control" required>   
-            </div>
+
             <div class="mb-3 mt-3">
                 <label for="username" class="form-label">username:</label>
                 <input type="text" name="username" class="form-control" required>   
@@ -72,34 +69,26 @@ if (isset($_POST["submit"]))
         <!-- end right column -->
 
         <!-- left column of form -->
-        <div class="left-cols" style="margin-left:2rem;">
-            <div class="mb-3 mt-3">
-                <label for="lastName" class="form-label">Lastname:</label>
-                <input type="text" name="LastName" class="form-control" required>   
-            </div>
+       
             <div class="mb-3 mt-3">
                 <label for="email" class="form-label">Email:</label>
                 <input type="email" name="email" class="form-control" required>   
             </div>
             <div class="mb-3 mt-3">
                 <label for="cpassword" class="form-label">Comfirm password:</label>
-                <input type="password" name="cpassword" class="form-control" required>   
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="gender" class="form-label"> Gender:</label>
-                <input type="text" name="gender" class="form-control" required>   
-            </div>
+                <input type="password" name="conform_password" class="form-control" required>   
         </div>
         </div>
         <!-- end left column -->
-        <div class="down-div mb-5" style="margin-left:3rem; margin-top:-2rem;">
-         <button type="submit" class="btn btn-primary d-block mb-5" style="width: 35rem;"> SignUp</button>
+         <div class="down-div mb-5" style="margin-left:3rem; margin-top:-2rem;">
+         <input type="submit" class="btn btn-primary d-block mb-5" style="width: 35rem;" name="save"> SignUp</input>
          <a href="./SignIn.php">Arleady have an Account?</a>  
         </div>
     </form>
     </div>
 </div>
     <!-- end main -->
+
 <!-- Footer -->
 <div class="footer">
 <div class="footermain text-center mt-5 text-dark-primary" >

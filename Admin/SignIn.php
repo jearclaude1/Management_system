@@ -1,40 +1,22 @@
 <?php
-session_start();
-include_once('../php/connection/connection.php');
 
-function isLoggedIn() {
-    return isset($_SESSION['username']);
-}
+include("../php/connection/connection.php");
+if(isset($_POST["save"])) 
+{
+   $username=$_POST["email"];
+   $password=$_POST["password"];
 
-function validateCredentials($username, $email, $password) {
+   $insert=mysqli_query($database,"SELECT * FROM `user` WHERE `Username`='$username' AND `Password`='$password'; ");
 
-    if (!empty($username) && !empty($email) && !empty($password)) {
-        return true;
-    }
-    return false;
-    //
-}
-
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Validate credentials
-    if (validateCredentials($username, $email, $password)) {
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
-
-        header("Location: index.php");
-        exit;
-    } else {
-
-        echo "<script>alert('Invalid username, email, or password. Please try again.');</script>";
-    }
+   if($insert == false){
+    echo "<script>alert('invalid username tor password !');</script>";
+   }
+   else{
+   echo "<script>alert('Welcome to Umucyo Choir.');</script>";
+   header("location:../Pages/dashbord.php"); 
+  }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,26 +44,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form" style="width:500px; margin-left:6rem; margin-top:2rem">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-<div class="">
-    <label for="username" class="form-label">Username:</label><br>
-    <input type="text" class="form-control" id="username" name="username" required><br><br>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Please fill out this field.</div>
-</div>
-<div class="">
-    <label for="password" class="form-label">Password:</label><br>
-    <input type="password" class="form-control" id="password" name="password" required><br><br>
-    <div class="valid-feedback">Valid.</div>
-    <div class="invalid-feedback">Please fill out this field.</div>
-</div>
-<div class="down" style="display:flex; padding:3rem; margin-top:-1rem;">
-<input type="submit" value="SignIn" id="signup" class="btn btn-primary" style="width:60rem; margin-top:-3rem;">
-</div>
-<div class="down d-flex">
-<a href="./SignUp.php">Forget your password?</a>
-<a href="../index.php" class="btn btn-primary" style="margin-left:2rem;">Back</a>
-</div>
-</form> 
+            <div class="">
+                    <label for="username" class="form-label">Username:</label><br>
+                    <input type="text" class="form-control" id="username" name="username" required><br><br>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="">
+                    <label for="password" class="form-label">Password:</label><br>
+                    <input type="password" class="form-control" id="password" name="password" required><br><br>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <div class="down" style="display:flex; padding:3rem; margin-top:-1rem;">
+                <input type="submit" value="SignIn" name="save" id="signup" class="btn btn-primary" style="width:60rem; margin-top:-3rem;">
+            </div>
+                <div class="down d-flex">
+                <a href="./SignUp.php">Forget your password?</a>
+                <a href="../index.php" class="btn btn-primary" style="margin-left:2rem;">Back</a>
+            </div>
+        </form> 
   </div>
 </div>
 </div>
